@@ -29,33 +29,33 @@ const hoverCardsData: Record<string, {
   bannerText: string;
 }> = {
   github: {
-    handle: "@nodeanurag",
-    bio: "Full Stack Developer. Building products, learning technologies, shipping consistently. Obsessed with clean code.",
-    stats: ["5+ Projects", "500+ Contributions"],
+    handle: "@kanaad-lims",
+    bio: "AI Engineer & CS Student. Building AI-powered applications, RAG systems and machine learning solutions.",
+    stats: ["4+ Projects", "1,100+ PyPI Downloads"],
     bannerText: "learn • build • ship",
   },
   twitter: {
-    handle: "@anuragdotdev",
-    bio: "Building clean, modern web apps where design, functionality, and even the smallest details matter.",
-    stats: ["Tech Thoughts", "Dev Twitter"],
+    handle: "@kanaad_limaye",
+    bio: "Transforming AI models into real-world products. Systems beyond just models.",
+    stats: ["Tech Thoughts", "AI & ML"],
     bannerText: "connect • share • grow",
   },
   linkedin: {
     pronouns: "He/Him",
-    handle: "in/nodeanurag",
-    bio: "Frontend & Backend Developer. Experienced in React, Next.js, Node.js, and database systems.",
-    stats: ["Open to Work", "Delhi, India"],
+    handle: "in/kanaad-limaye",
+    bio: "ML Intern at PictelAI. Computer vision, RAG systems and agentic AI. IEEE published researcher.",
+    stats: ["Open to Work", "Pune, India"],
     bannerText: "network • build • impact",
   },
   medium: {
-    handle: "@anuragdotdev",
-    bio: "Writing technical articles about software development, system design, React, and backend architecture.",
+    handle: "@kanaad.limaye",
+    bio: "Writing about AI, machine learning and engineering real-world systems.",
     stats: ["Tech Articles", "Blog Posts"],
     bannerText: "write • share • read",
   },
   email: {
-    handle: "conveytoanurag@gmail.com",
-    bio: "Available for contract work, internship opportunities, and collaborative software engineering projects.",
+    handle: "kanaad.limaye@gmail.com",
+    bio: "Available for internships, collaborations and AI/ML engineering opportunities.",
     stats: ["Fast Response", "Direct Email"],
     bannerText: "collab • contact • direct",
   },
@@ -64,12 +64,6 @@ const hoverCardsData: Record<string, {
     bio: "View academic records, developer skills, and internship details.",
     stats: ["PDF Resume", "1-Page CV"],
     bannerText: "skills • experience • cv",
-  },
-  discord: {
-    handle: "anurag.dev",
-    bio: "Join my server or drop a DM to chat about web dev, coding challenges, or side projects.",
-    stats: ["Developer Chat", "Active DM"],
-    bannerText: "hangout • chat • code",
   },
 };
 

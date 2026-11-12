@@ -14,6 +14,9 @@ import { OpenSource } from "@/sections/OpenSource";
 import { TechStack } from "@/sections/TechStack";
 import { Writing } from "@/sections/Writing";
 import { GithubActivity } from "@/sections/GithubActivity";
+import { Research } from "@/sections/Research";
+import { Achievements } from "@/sections/Achievements";
+import { Leadership } from "@/sections/Leadership";
 import { CommandPalette } from "@/components/command-palette";
 import { WritingPage } from "@/pages/WritingPage";
 import { Konami } from "@/components/konami";
@@ -45,8 +48,10 @@ function MainLayout({ onOpenPalette }: { onOpenPalette: () => void }) {
       <Contact />
       <Projects isSearchable={false} />
       <Experience isDetailed={false} />
-      <OpenSource />
+      <Research />
       <TechStack />
+      <Achievements />
+      <Leadership />
       <Writing limit={4} />
       <GithubActivity />
     </>

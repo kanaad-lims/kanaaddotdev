@@ -8,7 +8,8 @@ export type Project = {
   featured?: boolean;
   status?: string;
   image?: string;
-  categories?: ("Frontend" | "Backend" | "Fullstack")[];
+  categories?: ("Frontend" | "Backend" | "Fullstack" | "AI/ML" | "Tooling")[];
+  downloads?: { from: number; to: number; label?: string };
 };
 
 export type Job = {
@@ -16,6 +17,8 @@ export type Job = {
   role: string;
   period: string;
   blurb: string;
+  highlights?: string[];
+  logo?: string;
   url?: string;
 };
 
@@ -37,6 +40,32 @@ export type Post = {
   readingTime?: string;
 };
 
+export type Paper = {
+  title: string;
+  venue: string;
+  verdict: "Published" | "Accepted";
+  authors: string;
+  summary: string[];
+  tags: string[];
+  publicationUrl?: string;
+  pdfUrl?: string;
+};
+
+export type Achievement = {
+  title: string;
+  category: string;
+  points: string[];
+  year: string;
+};
+
+export type LeadershipRole = {
+  org: string;
+  role: string;
+  points: string[];
+  period: string;
+  logo?: string;
+};
+
 export type OpenSourceContribution = {
   title: string;
   repo: string;
@@ -48,12 +77,12 @@ export type OpenSourceContribution = {
 };
 
 export const site = {
-  name: "Anurag Jha",
-  firstName: "Anurag",
-  url: "https://anuragdotdev.vercel.app",
+  name: "Kanaad Limaye",
+  firstName: "Kanaad",
+  url: "https://kanaad-lims.github.io",
   quote: {
-    text: "Simplicity is prerequisite for reliability.",
-    author: "Edsger W. Dijkstra",
+    text: "Systems beyond just models",
+    author: "",
   },
   profileImages: [
     "/profile.jpg",
@@ -61,322 +90,296 @@ export const site = {
   ],
   bannerImage: "/images/cover.jpg",
   socialBannerImage: "/social-banner.png",
-  initials: "AJ",
-  role: "Full Stack Developer",
-  location: "Delhi, India",
+  initials: "KL",
+  role: "AI Engineer | CS Student",
+  location: "Pune, India",
   timezone: "Asia/Kolkata",
-  email: "conveytoanurag@gmail.com",
-  greeting: "Hey, I'm Anurag",
-  tagline: "I build clean, modern websites and web apps where design, functionality, and even the smallest details matter.",
+  email: "kanaad.limaye@gmail.com",
+  greeting: "Hi, I'm Kanaad",
+  tagline: "Building AI-powered applications, RAG systems, backend services and machine learning solutions. Passionate about transforming AI models into real-world products.",
   about: [
-    "Hey, I'm Anurag, a full stack developer who loves building clean, modern websites and apps where design, functionality, and even the smallest details matter, with a focus on making products that are both practical and visually satisfying.",
-    "I spend most of my time in the terminal, the browser, or scribbling on a whiteboard. I lean backend, not because I don't like frontend, but because I enjoy making polished things actually hold up.",
-    "I don't ship junk. Maintainability isn't optional. And I build best when I'm curious.",
+    "I am currently working as an ML Intern at PictelAI, where I help build computer vision and image processing pipelines that are later integrated into advanced microscopes and stand-alone systems.",
+    "My work is focused on bridging the gap between AI/ML research and practical applications. Currently working in the Agentic AI space, where I plan to design and build production-level systems that scale.",
+    "When I am AFK, you'll probably find me watching football, going on a trek or relaxing with a good piece of fiction.",
   ],
   tldr: [
-    "Building products.",
-    "Learning technologies.",
-    "Shipping consistently.",
-    "Obsessed with clean code.",
+    "ML Intern @ PictelAI.",
+    "Building agentic AI systems.",
+    "IEEE published researcher.",
+    "Systems beyond just models.",
   ],
   status: {
     available: true,
     availableText: "open to opportunities",
-    nowLearning: "Backend Engineering • System Design • DSA • DevOps",
-    nowBuilding: "DoodleDash",
-    nowListening: "focus playlists",
+    nowLearning: "Agentic AI • RAG Systems • Computer Vision • Backend Engineering",
+    nowBuilding: "PaperLens",
+    nowListening: "football match highlights",
   },
   socials: {
-    github: "https://github.com/nodeanurag",
-    twitter: "https://x.com/anuragdotdev",
-    linkedin: "https://linkedin.com/in/nodeanurag",
-    email: "mailto:conveytoanurag@gmail.com",
-    resume: "",
-    discord: "https://discord.gg/ra4kyKdTk",
-    medium: "https://medium.com/@anuragdotdev",
+    github: "https://github.com/kanaad-lims",
+    twitter: "https://x.com/kanaad_limaye",
+    linkedin: "https://linkedin.com/in/kanaad-limaye",
+    email: "mailto:kanaad.limaye@gmail.com",
+    resume: "https://drive.google.com/file/d/1OqlQWzckAdK4XZpJ0M2Ied85ll6ET6sJ/view?usp=sharing",
+    discord: "",
+    medium: "https://medium.com/@kanaad.limaye",
   },
   experience: [
     {
-      company: "Independent Developer",
-      role: "Backend & Full-Stack Developer",
-      period: "2025 – Present",
+      company: "IISER Pune",
+      role: "Project Intern",
+      period: "",
+      blurb: "",
+      highlights: [
+        "Working on a quantum computing website for bug fixing and feature addition.",
+      ],
+      logo: "/images/companies/iiserlogo.png",
+    },
+    {
+      company: "PictelAI",
+      role: "Machine Learning Intern",
+      period: "Jan 2026 – Jul 2026",
       blurb:
-        "Building and shipping full-stack applications, SaaS products, and backend systems for real-world use cases. Working across APIs, authentication, databases, real-time systems, and modern web infrastructure.",
+        "Worked on building computer vision and image processing pipelines, integrating into advanced microscopes and stand-alone systems.",
+      logo: "/images/companies/pictelai.png",
+      highlights: [
+        "Built a Rust + OpenCV image-processing pipeline for Gram-positive/negative classification, reaching 90% accuracy on a 500+ image dataset.",
+        "Fine-tuned YOLOv11 and Detectron2 models for object detection and feature extraction on proprietary client datasets, achieving 91% accuracy.",
+        "Deployed a production ML inference pipeline by exposing models through FastAPI and integrating a high-performance Rust backend using gRPC and NATS JetStream, supporting 2,000+ concurrent users while reducing latency by 30% (from 78ms to 54.6ms).",
+        "Optimized a legacy image-processing algorithm in Rust (OpenCV) for a 6.12× speedup from 20.053s to 3.276s; also shipped 4 production features via code review in a shared codebase.",
+      ],
       url: "",
     },
   ] as Job[],
-  freelanceProjects: [
-    {
-      title: "Course Selling Platform",
-      category: "Backend Development · Freelance",
-      description:
-        "Backend for an online course platform supporting authentication, course management, purchases, enrollments, and content access.",
-      overview:
-        "Developed the backend for a course-selling platform where users can discover courses, purchase access, and manage their enrolled content.",
-      responsibilities: [
-        "REST API development",
-        "Authentication and authorization",
-        "Course management",
-        "Enrollment and access control",
-        "Purchase workflows",
-        "Database design",
-        "Backend architecture",
-      ],
-      technologies: ["TypeScript", "Redis", "Razorpay", "Cloudinary", "JWT", "Docker", "Swagger"],
-      fullStack: [
-        "TypeScript",
-        "Node.js",
-        "Express.js",
-        "MongoDB",
-        "Redis",
-        "Razorpay",
-        "Cloudinary",
-        "JWT",
-        "Docker",
-        "Swagger",
-        "REST APIs",
-        "Postman",
-      ],
-    },
-    {
-      title: "Learning Management System",
-      category: "Backend Development · Freelance",
-      description:
-        "Backend architecture for an LMS supporting students, instructors, courses, enrollments, lessons, and progress tracking.",
-      overview:
-        "Built the backend architecture for a Learning Management System supporting students, instructors, and administrators.",
-      responsibilities: [
-        "Authentication",
-        "Role-based authorization",
-        "Course management",
-        "Lesson management",
-        "Enrollment workflows",
-        "Student progress tracking",
-        "REST API development",
-        "Database design",
-      ],
-      technologies: ["TypeScript", "Redis", "AWS S3", "JWT", "RBAC", "Docker", "Swagger"],
-      fullStack: [
-        "TypeScript",
-        "Node.js",
-        "Express.js",
-        "MongoDB",
-        "Redis",
-        "AWS S3",
-        "JWT",
-        "RBAC",
-        "Docker",
-        "Swagger",
-        "REST APIs",
-        "Postman",
-      ],
-    },
-  ] as FreelanceProject[],
+  freelanceProjects: [] as FreelanceProject[],
   projects: [
     {
-      title: "FrameLabs",
+      title: "Torch Transforms Inspect",
       blurb:
-        "A creative tool that turns static card generation into a reactive, real-time design experience. Users can switch between retro palettes and layouts on the fly, with zero jank—because every state transition is memoized and component-driven.",
+        "A lightweight utility for visually inspecting and debugging torchvision image transformation pipelines using PyTorch and matplotlib.",
       story:
-        "The frontend is built with React's compositional model, styled atomically with Tailwind CSS, and powered by Zustand for predictable, lean state management. Icons from lucide-react keep the UI crisp and accessible. The result: a minimal surface area with a maximal creative ceiling.\n\n*Designed for speed • Engineered for feel.*",
-      stack: ["React.js", "Tailwind CSS", "Zustand", "lucide-react"],
-      year: "2026",
+        "Uses native torchvision.transforms and visualizes intermediate steps without ever modifying your pipeline. Works in stand-alone Python files and Jupyter Notebooks, including Google Colab.",
+      stack: ["PyTorch", "Python", "Matplotlib"],
+      year: "2025",
       links: {
-        live: "https://framelabs.vercel.app/",
-        source: "https://github.com/nodeanurag/FrameLabs",
+        source: "https://github.com/kanaad-lims/Torch-Transform-Inspector",
       },
       featured: true,
-      image: "/project-images/framelabs.png",
-      categories: ["Frontend"],
+      image: "/project-images/torch_transform.png",
+      categories: ["Tooling"],
+      downloads: { from: 200, to: 1100, label: "PyPI Downloads" },
     },
     {
-      title: "DoodleDash",
+      title: "PaperLens",
       blurb:
-        "A real-time multiplayer drawing and guessing game (Skribbl.io clone) built as a TypeScript monorepo with absolute dimension-independent drawing synchronization.",
+        "AI-powered research paper analysis and Q&A engine with structured extraction and RAG-based question answering.",
       story:
-        "Engineered using Socket.IO WebSockets for bidirectional event mapping. Features a zero-trust server validation engine (timers, guessing logic, turn loops managed strictly on the server), spectator rooms, and a custom canvas-to-image engine for client-side PNG sharing. Strikethroughs and drawing vectors are normalized to relative coordinates to ensure cross-device consistency.",
-      stack: ["React.js", "Node.js", "Socket.IO", "TypeScript", "Tailwind CSS v4", "Zustand"],
+        "Structured extraction covers title, authors, abstract, problem statement, methods, math formulas (LaTeX), datasets, results, limitations, future work and keywords. The RAG Q&A engine supports parallel processing and uses hybrid search (BM25 + semantic search), achieving RAGAS scores of 0.91, 0.88, 0.87 and 0.90 for Faithfulness, Answer Relevancy, Context Precision and Context Recall.",
+      stack: ["Python", "LangGraph", "FastAPI"],
       year: "2026",
       links: {
-        live: "https://doodledash.pages.dev/",
-        source: "https://github.com/nodeanurag/DoodleDash",
+        source: "https://github.com/kanaad-lims/PaperLens",
       },
       featured: true,
-      image: "/project-images/doodledash.png",
-      categories: ["Fullstack", "Backend"],
+      image: "/project-images/paperlens.png",
+      categories: ["AI/ML"],
     },
     {
-      title: "CodeForge",
+      title: "MeDetect AI",
       blurb:
-        "A local-first browser-based IDE offering full Monaco editing, in-browser code execution for JS/Python/TS, sandboxed previews, and IndexedDB workspace persistence.",
+        "AI-powered diagnostic system with accurate detection of multiple diseases.",
       story:
-        "Engineered to run entirely client-side without servers. Integrates Monaco Editor models with dynamic Web Workers and Pyodide runtimes. Features resizable panel split layouts, instant sandboxed iframe live-previews for web files, Dexie-powered IndexedDB database state management, workspace-wide text search, and URL-encoded code snippets sharing.",
-      stack: ["React.js", "Vite", "Zustand", "Monaco Editor", "Pyodide", "Dexie.js"],
-      year: "2026",
+        "Trained models on T4x2 GPUs using TensorFlow and Keras with Roboflow for data augmentation, achieving 90.8% (Skin Disease) and 95.34% (Alzheimer's) accuracies across test datasets. Built a custom offline mode functionality using 3 LLMs through an inverted triangle model.",
+      stack: ["Next.js", "TensorFlow", "Python"],
+      year: "2025",
       links: {
-        source: "https://github.com/nodeanurag/codeforge",
-      },
-      featured: true,
-      status: "In Progress",
-      image: "/project-images/codeforge.png",
-      categories: ["Frontend"],
-    },
-    {
-      title: "SwiftPoll",
-      blurb:
-        "A real-time anonymous polling application built for maximum creation and voting speed without user registration friction.",
-      story:
-        "Uses Supabase Realtime DB and server actions for lightning-fast voting updates and creator actions. Features browser-stored secret admin tokens for accountless close/delete operations, server-side IP hashing spam de-duplication, full keyboard accessibility, and optimistic client voting counts.",
-      stack: ["Next.js", "Supabase", "TypeScript", "Tailwind CSS v4", "Zod", "Vitest"],
-      year: "2026",
-      links: {
-        source: "https://github.com/nodeanurag/swiftpoll",
+        source: "https://github.com/kanaad-lims/MeDetect-AI",
       },
       featured: false,
-      image: "/project-images/swiftpoll.png",
-      categories: ["Fullstack"],
+      image: "/project-images/medetect.jpeg",
+      categories: ["AI/ML"],
     },
     {
-      title: "Nexus",
+      title: "MIRAGE",
       blurb:
-        "A workspace-based project management app featuring kanban boards, real-time activity tracking, nodemailer notifications, and robust team collaboration.",
+        "Multimodal Image Retrieval & Attribute-Grounded Engine — an open-vocabulary, context-aware image search engine.",
       story:
-        "Built to mimic enterprise collaboration canvases. Employs Next-Auth for role-based authentication, TanStack Query for caching and server synchronization, Recharts for team productivity insights, and @dnd-kit for seamless drag-and-drop workflow task transitions. Backed by a clean PostgreSQL database schema via Prisma.",
-      stack: ["Next.js", "Prisma", "PostgreSQL", "React Query", "@dnd-kit", "Next-Auth"],
-      year: "2026",
+        "Utilizes VLM dense captioning (Moondream) and CLIP visual reranking for zero-shot image retrieval using natural language. Features compositional attribute binding, context & location awareness, vibe & style inference, and dual-stage retrieval.",
+      stack: ["OpenAI CLIP", "MoonDream 2 VLM", "ChromaDB"],
+      year: "2025",
       links: {
-        source: "https://github.com/nodeanurag/nexus",
+        source: "https://github.com/kanaad-lims/mirage",
       },
       featured: false,
-      image: "/project-images/nexus.png",
-      categories: ["Fullstack", "Backend"],
+      image: "/project-images/mirage.png",
+      categories: ["AI/ML"],
     },
   ] as Project[],
+  papers: [
+    {
+      title: "Multi-modal Artificial Intelligence System for Early Detection of Neurological Diseases",
+      venue: "International Conference on Emerging Trends and Technology, IEEE • January 2026",
+      verdict: "Published",
+      authors: "Kanaad Limaye • Bhushan Anokar • Swanand Mukkawar • Dr. Chhaya Gosavi • Dr. Reena Pagaree",
+      summary: [
+        "Proposed a multimodal AI framework for early neurological disease detection using MRI imaging and deep learning.",
+        "Fine-tuned ResNet-152 on the 15,000+ image ADNI dataset for Alzheimer's disease staging.",
+        "Achieved 94.63% test accuracy and 93.43% validation accuracy.",
+      ],
+      tags: ["Deep Learning", "Medical Imaging", "Fine-Tuning", "Computer Vision", "Healthcare AI"],
+      publicationUrl: "https://ieeexplore.ieee.org/abstract/document/11447679/",
+      pdfUrl: "https://drive.google.com/file/d/1WUDskMusgE2sVgA-cDT69uHaLhq7NL9u/view?usp=sharing",
+    },
+    {
+      title: "An Analysis of Technical Autonomy and Legal Responsibility in AI-Powered Surgery",
+      venue: "South Asian Conference on Science and Technology, IEEE • July 2026 (to be published)",
+      verdict: "Accepted",
+      authors: "Kanaad Limaye • Swaraa Kulkarni",
+      summary: [
+        "Explored the relationship between artificial intelligence, surgical autonomy and legal responsibility.",
+        "Examined the ethical and regulatory challenges associated with AI-powered surgical systems.",
+        "Proposed future governance considerations for the safe deployment of autonomous medical technologies.",
+      ],
+      tags: ["Artificial Intelligence", "AI Ethics", "Healthcare", "Medical Robotics", "AI Governance"],
+      pdfUrl: "https://drive.google.com/file/d/1_dbqmBfizNcwmaBE7BXmwD2XfgyXxFF5/view?usp=sharing",
+    },
+    {
+      title: "GSM Based Home Security System Using Arduino Microcontrollers",
+      venue: "Indian Journal of Computer Science and Technology • April 2025",
+      verdict: "Published",
+      authors: "Kanaad Limaye • Avaneesh Joshi • Yashada Jagtap • Sarwadnya Mahajan • Arpita Ingalgi • Vaidehi Magare • Dr. Sunita Upasani",
+      summary: [
+        "Designed an IoT-based home security system using Arduino microcontrollers and GSM communication.",
+        "Achieved over 90% threat detection accuracy across multiple security scenarios.",
+        "Reduced deployment cost by nearly 80% compared to commercial security solutions.",
+      ],
+      tags: ["IoT", "Arduino", "Embedded Systems", "GSM", "Smart Home", "Security"],
+      publicationUrl: "https://www.indjcst.com/archives/10.59256/indjcst.20250401020",
+      pdfUrl: "https://drive.google.com/file/d/18XplHXaMd-fb1HC9Ey-CYR6u8nc6FdUa/view?usp=sharing",
+    },
+  ] as Paper[],
+  achievements: [
+    {
+      title: "ABU Robocon AIR 5",
+      category: "Competition",
+      points: [
+        "Secured AIR 5 nationally at ABU Robocon.",
+        "Represented Team Rudra in autonomous robotics.",
+      ],
+      year: "2024",
+    },
+    {
+      title: "IEEE Publication",
+      category: "Research",
+      points: [
+        "Research paper accepted at an international conference.",
+        "Published in IEEE Xplore proceedings.",
+      ],
+      year: "2026",
+    },
+    {
+      title: "SISTER AI/ML Program",
+      category: "Fellowship",
+      points: [
+        "Selected for the AI/ML research track.",
+        "Mentorship under Delta Rising Foundation.",
+      ],
+      year: "2026",
+    },
+  ] as Achievement[],
+  leadership: [
+    {
+      org: "IEEE MMCOE Student Branch",
+      role: "Chairperson",
+      points: [
+        "Led the IEEE Student Branch and coordinated technical initiatives.",
+        "Organized workshops, events and community activities.",
+        "Best Student Branch of the Year 2025 – IEEE Pune Section.",
+      ],
+      period: "Jan 2025 – Jan 2026",
+      logo: "/images/leadership/ieeeLogo.png",
+    },
+    {
+      org: "HPAIR",
+      role: "International Student Delegate",
+      points: [
+        "Represented MMCOE at the Harvard Project for Asian and International Relations.",
+        "Participated in discussions on leadership, innovation and global collaboration.",
+      ],
+      period: "Aug 2025 – Present",
+      logo: "/images/leadership/harvardLogo.png",
+    },
+    {
+      org: "Logitech",
+      role: "Marketing Volunteer",
+      points: [
+        "Volunteered during the MX Master Series launch at Pune Design Festival 2025.",
+        "Assisted with product demonstrations and attendee engagement.",
+      ],
+      period: "Mar 2025 – Mar 2025",
+      logo: "/images/leadership/logiLogo.png",
+    },
+    {
+      org: "Volship Fellowship under UNICEF",
+      role: "Volunteer",
+      points: [
+        "Community volunteering under the Volship Fellowship program in association with UNICEF.",
+      ],
+      period: "Jan 2024 – Apr 2024",
+      logo: "/images/leadership/unicefLogo.png",
+    },
+    {
+      org: "Kumudini Charitable Trust",
+      role: "Volunteer",
+      points: [
+        "Ongoing volunteering with Kumudini Charitable Trust.",
+      ],
+      period: "2023 – Present",
+      logo: "/images/leadership/kumudiniLogo.png",
+    },
+  ] as LeadershipRole[],
   skills: [
-    "TypeScript",
-    "JavaScript",
-    "React",
-    "Next.js",
-    "Node.js",
-    "Express.js",
-    "Tailwind CSS",
-    "Shadcn UI",
-    "PostgreSQL",
-    "MongoDB",
-    "Prisma",
-    "Supabase",
-    "Firebase",
-    "REST APIs",
-    "JWT",
-    "Git",
-    "GitHub",
-    "Postman",
-    "Vercel",
-    "Figma",
+    "C",
     "C++",
     "Python",
+    "Rust",
+    "PyTorch",
+    "TensorFlow",
+    "Hugging Face Ecosystem",
+    "Transformers",
+    "Vision Language Models",
+    "RAG Pipelines",
+    "Vector Databases",
+    "LangChain",
+    "LangGraph",
+    "LangSmith",
+    "Multi Agent Systems",
+    "Agent Harness",
+    "OpenCV",
+    "Object Detection",
+    "Segmentation",
+    "Classification",
+    "YOLOv8",
+    "YOLOv11",
+    "Detectron2",
+    "FastAPI",
+    "Flask",
+    "REST APIs",
+    "gRPC",
+    "NATS",
+    "SQLite3",
+    "Docker",
+    "AWS",
+    "GitHub Actions",
+    "Git",
   ],
-  writing: [
-    {
-      title: "Authentication & Authorization for Backend Engineers: A Complete Guide",
-      summary: "A comprehensive guide on authentication and authorization architectures, covering passwords, sessions at scale, JWTs, OAuth, WebAuthn, and zero-trust security for backend systems.",
-      date: "Sep 11, 2026",
-      readingTime: "25 min read",
-      url: "https://medium.com/@anuragdotdev/authentication-authorization-for-backend-engineers-a-complete-guide-f8844e97bddf?sharedUserId=anuragdotdev",
-    },
-    {
-      title: "Serialization and Deserialization: The Universal Language of Backend Engineering",
-      summary: "A deep dive into serialization formats from JSON and XML to Protocol Buffers, exploring schema validation, backward compatibility, and network serialization bottlenecks.",
-      date: "Aug 29, 2026",
-      readingTime: "14 min read",
-      url: "https://medium.com/@anuragdotdev/serialization-and-deserialization-the-universal-language-of-backend-engineering-8df8ce03d257",
-    },
-    {
-      title: "The Ultimate Guide to Routing: From Network Packets to Backend Handlers",
-      summary: "A comprehensive exploration of routing across layers, tracing IP packets, hardware routing tables, HTTP multiplexing, and frontend routers.",
-      date: "Aug 26, 2026",
-      readingTime: "20 min read",
-      url: "https://medium.com/@anuragdotdev/the-ultimate-guide-to-routing-from-network-packets-to-backend-handlers-64cc4f7fdbfa",
-    },
-    {
-      title: "Understanding HTTP: The Backbone of the Web",
-      summary: "A deep dive into the Hypertext Transfer Protocol, exploring header lifecycle, request methods, statelessness, and connection optimization from HTTP/1.1 to HTTP/3.",
-      date: "Aug 22, 2026",
-      readingTime: "15 min read",
-      url: "https://medium.com/@anuragdotdev/understanding-http-the-backbone-of-the-web-3d2109d0facd",
-    },
-    {
-      title: "API Rate Limiting: I thought it was just counting requests...",
-      summary: "An analysis of rate limiting algorithms from Token Bucket to Sliding Window logs, detailing how distributed systems protect API infrastructure under load.",
-      date: "Jul 12, 2026",
-      readingTime: "14 min read",
-      url: "https://medium.com/@anuragdotdev/api-rate-limiting-i-thought-it-was-just-counting-requests-682cefa2f56c",
-    },
-    {
-      title: "The JWT Storage Debate is Over: Here's the Production-Grade Architecture Your App Actually Needs",
-      summary: "A definitive guide to JWT storage in frontend applications, detailing why standard localStorage fails and how to implement secure memory-session architecture with HTTP-only cookies.",
-      date: "Jun 24, 2026",
-      readingTime: "8 min read",
-      url: "https://medium.com/@anuragdotdev/the-jwt-storage-debate-is-over-heres-the-production-grade-architecture-your-app-actually-needs-9ab284da065f",
-    }
-  ] as Post[],
-  openSourceContributions: [
-    {
-      title: "UI: Restyle hero buttons to custom Neo-Brutalist spec",
-      repo: "fossasia/voxbento",
-      prNumber: 370,
-      url: "https://github.com/fossasia/voxbento/pull/370",
-      status: "Merged",
-      description:
-        "Restyled hero CTA buttons with custom Neo-Brutalist design, thicker borders, hard-offset shadows, hover lift, and active press states while resolving CSS specificity issues with Tailwind preflight.",
-      technologies: ["Tailwind CSS", "CSS", "UI/UX", "Neo-Brutalism"],
-    },
-    {
-      title: "UI: Restyle navbar login buttons to custom Neo-Brutalist spec",
-      repo: "fossasia/voxbento",
-      prNumber: 358,
-      url: "https://github.com/fossasia/voxbento/pull/358",
-      status: "Merged",
-      description:
-        "Standardized landing page navbar authentication actions (Sign In, Register, Dashboard) into unified Neo-Brutalist button components with standardized borders, shadows, hover lift, and active states.",
-      technologies: ["CSS", "HTML", "UI/UX", "Neo-Brutalism"],
-    },
-    {
-      title: "Bug fix: speaker image blue overlay",
-      repo: "fossasia/voxbento",
-      prNumber: 389,
-      url: "https://github.com/fossasia/voxbento/pull/389",
-      status: "Merged",
-      description:
-        "Resolved an image rendering bug on the landing page where the speaker visual was obscured by an unwanted blue overlay and blend mode, restoring full color clarity.",
-      technologies: ["HTML", "Tailwind CSS", "Bug Fix"],
-    },
-    {
-      title: "UI: Restyle navbar logout button to match Brutalist outline style",
-      repo: "fossasia/voxbento",
-      prNumber: 395,
-      url: "https://github.com/fossasia/voxbento/pull/395",
-      status: "Merged",
-      description:
-        "Restyled the Logout action in the homepage header navbar from a plain text link into a responsive Neo-Brutalist outline button matching adjacent dashboard controls.",
-      technologies: ["HTML", "CSS", "UI/UX", "Neo-Brutalism"],
-    },
-    {
-      title: "Refactor(activity): Remove redundant Touch.enable call",
-      repo: "sugarlabs/musicblocks",
-      prNumber: 8126,
-      url: "https://github.com/sugarlabs/musicblocks/pull/8126",
-      status: "Merged",
-      description:
-        "Cleaned up redundant touch initialization on the stage instance in EaselJS/CreateJS canvas rendering loop, optimizing event handler registration without breaking mobile interactions.",
-      technologies: ["JavaScript", "EaselJS", "Performance", "Refactoring"],
-    },
-  ] as OpenSourceContribution[],
+  writing: [] as Post[],
+  openSourceContributions: [] as OpenSourceContribution[],
   github: {
-    username: "nodeanurag",
+    username: "kanaad-lims",
     contributionsLastYear: "500+",
   },
-  footerNote: "Built with ❤️ and hardwork"
+  footerNote: "Built with React • Vite • ReactBits",
 } as const;
 
 export type Site = typeof site;

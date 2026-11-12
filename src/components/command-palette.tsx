@@ -108,7 +108,7 @@ export function CommandPalette({
       id: "nav-experience",
       category: "navigation",
       title: "Go to Experience",
-      subtitle: "Engineering experience & freelance work",
+      subtitle: "Work experience & research",
       icon: <Briefcase size={16} />,
       action: () => {
         navigate("/experience");
@@ -174,7 +174,7 @@ export function CommandPalette({
       id: "action-medium",
       category: "actions",
       title: "Open Medium Profile",
-      subtitle: "medium.com/@anuragdotdev",
+      subtitle: "medium.com/@kanaad.limaye",
       icon: <BookOpen size={16} />,
       action: () => {
         window.open((site.socials as any).medium, "_blank");

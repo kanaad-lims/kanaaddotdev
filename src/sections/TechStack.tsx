@@ -7,43 +7,97 @@ import { Icon } from "@iconify/react";
 const CATEGORY_ICONS: Record<string, string> = {
   All: "lucide:layers",
   Languages: "lucide:code-2",
-  Backend: "lucide:server",
-  Frontend: "lucide:layout",
-  Databases: "lucide:database",
-  "DevOps & Tools": "lucide:terminal",
+  "ML / DL": "lucide:brain",
+  "GenAI & LLM Systems": "lucide:bot",
+  "Computer Vision": "lucide:eye",
+  "Backend & APIs": "lucide:server",
+  "Cloud & MLOps": "lucide:cloud",
 };
 
 const SKILL_ICONS: Record<string, string> = {
-  TypeScript: "logos:typescript-icon",
-  JavaScript: "logos:javascript",
-  React: "logos:react",
-  "Next.js": "logos:nextjs-icon",
-  "Node.js": "logos:nodejs-icon",
-  "Express.js": "logos:express",
-  "Tailwind CSS": "logos:tailwindcss-icon",
-  "Shadcn UI": "simple-icons:shadcnui",
-  PostgreSQL: "logos:postgresql",
-  MongoDB: "logos:mongodb-icon",
-  Prisma: "logos:prisma",
-  Supabase: "logos:supabase-icon",
-  Firebase: "logos:firebase",
-  "REST APIs": "lucide:cpu",
-  JWT: "logos:jwt-icon",
-  Git: "logos:git-icon",
-  GitHub: "logos:github-icon",
-  Postman: "logos:postman-icon",
-  Vercel: "logos:vercel-icon",
-  Figma: "logos:figma",
+  C: "logos:c",
   "C++": "logos:c-plusplus",
   Python: "logos:python",
+  Rust: "logos:rust",
+  PyTorch: "logos:pytorch-icon",
+  TensorFlow: "logos:tensorflow",
+  "Hugging Face Ecosystem": "logos:hugging-face",
+  Transformers: "logos:hugging-face",
+  "Vision Language Models": "lucide:eye",
+  "RAG Pipelines": "lucide:workflow",
+  "Vector Databases": "logos:qdrant",
+  LangChain: "simple-icons:langchain",
+  LangGraph: "simple-icons:langgraph",
+  LangSmith: "lucide:flask-conical",
+  "Multi Agent Systems": "lucide:network",
+  "Agent Harness": "lucide:bot",
+  OpenCV: "logos:opencv",
+  "Object Detection": "lucide:scan",
+  Segmentation: "lucide:crop",
+  Classification: "lucide:tags",
+  YOLOv8: "lucide:crosshair",
+  YOLOv11: "lucide:crosshair",
+  Detectron2: "logos:meta-icon",
+  FastAPI: "simple-icons:fastapi",
+  Flask: "logos:flask",
+  "REST APIs": "lucide:plug",
+  gRPC: "logos:grpc",
+  NATS: "logos:nats",
+  SQLite3: "logos:sqlite",
+  Docker: "logos:docker-icon",
+  AWS: "logos:aws",
+  "GitHub Actions": "logos:github-actions",
+  Git: "logos:git-icon",
+};
+
+const ICON_TINT: Record<string, string> = {
+  "Vision Language Models": "text-fuchsia-400",
+  "RAG Pipelines": "text-cyan-400",
+  LangSmith: "text-emerald-400",
+  "Multi Agent Systems": "text-violet-400",
+  "Agent Harness": "text-orange-400",
+  "Object Detection": "text-sky-400",
+  Segmentation: "text-rose-400",
+  Classification: "text-amber-400",
+  YOLOv8: "text-red-400",
+  YOLOv11: "text-red-400",
+  "REST APIs": "text-blue-400",
+};
+
+const EMOJI_SKILLS: Record<string, string> = {
+  "Hugging Face Ecosystem": "🤗",
+  Transformers: "🤗",
 };
 
 const skillCategories: Record<string, string[]> = {
-  Languages: ["TypeScript", "JavaScript", "Python", "C++"],
-  Frontend: ["React", "Next.js", "Tailwind CSS", "Shadcn UI", "Figma"],
-  Backend: ["Node.js", "Express.js", "REST APIs", "JWT"],
-  Databases: ["PostgreSQL", "MongoDB", "Prisma", "Supabase", "Firebase"],
-  "DevOps & Tools": ["Git", "GitHub", "Postman", "Vercel"],
+  Languages: ["C", "C++", "Python", "Rust"],
+  "ML / DL": [
+    "PyTorch",
+    "TensorFlow",
+    "Hugging Face Ecosystem",
+    "Transformers",
+    "Vision Language Models",
+  ],
+  "GenAI & LLM Systems": [
+    "RAG Pipelines",
+    "Vector Databases",
+    "LangChain",
+    "LangGraph",
+    "LangSmith",
+    "Multi Agent Systems",
+    "Agent Harness",
+  ],
+  "Computer Vision": [
+    "OpenCV",
+    "Object Detection",
+    "Segmentation",
+    "Classification",
+    "YOLOv8",
+    "YOLOv11",
+    "Detectron2",
+  ],
+  "Backend & APIs": ["FastAPI", "Flask", "REST APIs", "gRPC", "NATS", "SQLite3"],
+  "Cloud & MLOps": ["Docker", "AWS", "GitHub Actions", "Git"],
 };
 
 export function TechStack() {
@@ -51,7 +105,7 @@ export function TechStack() {
 
   if (!site.skills.length) return null;
 
-  const categories = ["All", "Languages", "Frontend", "Backend", "Databases", "DevOps & Tools"];
+  const categories = ["All", "Languages", "ML / DL", "GenAI & LLM Systems", "Computer Vision", "Backend & APIs", "Cloud & MLOps"];
 
   const filteredSkills = activeCategory === "All"
     ? site.skills
@@ -95,7 +149,7 @@ export function TechStack() {
           <AnimatePresence mode="popLayout">
             {filteredSkills.map((skill) => {
               const iconName = SKILL_ICONS[skill] || "lucide:code-2";
-              const isShadcn = iconName === "simple-icons:shadcnui";
+              const tint = ICON_TINT[skill];
               return (
                 <motion.span
                   key={skill}
@@ -106,14 +160,16 @@ export function TechStack() {
                   transition={{ duration: 0.2, type: "spring", stiffness: 300, damping: 25 }}
                   className="flex cursor-default items-center gap-2 rounded-md border border-[var(--line)] bg-[var(--card)] px-3 py-1.5 font-mono text-[12px] text-[var(--muted)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--fg)] hover:bg-[var(--fg)] hover:text-[var(--bg)] shadow-xs group"
                 >
-                  <Icon 
-                    icon={iconName} 
-                    width={16}
-                    height={16}
-                    className={`size-4 shrink-0 transition-colors ${
-                      isShadcn ? "text-current" : ""
-                    } group-hover:filter group-hover:brightness-110`} 
-                  />
+                  {EMOJI_SKILLS[skill] ? (
+                    <span className="shrink-0 text-[14px] leading-none">{EMOJI_SKILLS[skill]}</span>
+                  ) : (
+                    <Icon
+                      icon={iconName}
+                      width={16}
+                      height={16}
+                      className={`size-4 shrink-0 transition-colors ${tint ?? ""} group-hover:brightness-110`}
+                    />
+                  )}
                   {skill}
                 </motion.span>
               );

@@ -5,6 +5,25 @@ import { Shell, SectionHeader } from "@/components/Layout";
 import { site, type FreelanceProject } from "@/config/site";
 import { ExternalLink, Lock, ChevronDown, ChevronUp, ArrowUpRight } from "lucide-react";
 
+/** Splits text and wraps numeric metrics (90%, 2,000+, 6.12×, 54.6ms, 500+) in bold. */
+function BoldMetrics({ text }: { text: string }) {
+  const re = /(?<![A-Za-z0-9])\d[\d.,]*(?:%|×|ms|s)?\+?/g;
+  const parts = text.split(re);
+  const matches = text.match(re) ?? [];
+  return (
+    <>
+      {parts.map((part, i) => (
+        <span key={i}>
+          {part}
+          {matches[i] && (
+            <strong className="font-semibold text-[var(--fg)]">{matches[i]}</strong>
+          )}
+        </span>
+      ))}
+    </>
+  );
+}
+
 function FreelanceCard({
   project,
   isExperiencePage,
@@ -129,45 +148,46 @@ export function Experience({ isDetailed }: { isDetailed?: boolean }) {
               i > 0 ? "border-t border-[var(--line)]" : ""
             }`}
           >
-            <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-              <h3 className="text-[15.5px] font-semibold text-[var(--fg)] flex items-center gap-2">
-                {job.role} <span className="text-[var(--soft)]">·</span>{" "}
-                <span className="text-[var(--muted)]">{job.company}</span>
-                {job.url && <ExternalLink size={14} className="text-[var(--soft)]" />}
-              </h3>
-              <span className="font-mono text-[11px] text-[var(--soft)]">{job.period}</span>
-            </div>
-            <p className="mt-2 text-[13.5px] leading-relaxed text-[var(--muted)] max-w-2xl">{job.blurb}</p>
+            <div className="flex gap-4">
+              {job.logo && (
+                <div className="grid size-12 shrink-0 place-items-center self-start rounded-lg border border-[var(--line)] bg-white p-1.5">
+                  <img
+                    src={job.logo}
+                    alt={job.company}
+                    loading="lazy"
+                    decoding="async"
+                    className="max-h-full max-w-full object-contain"
+                  />
+                </div>
+              )}
 
-            {/* Impact Metric Matrix */}
-            <div className="mt-5 grid grid-cols-2 sm:grid-cols-4 rounded-lg border border-[var(--line)] bg-[var(--chip)]/60 overflow-hidden">
-              <div className="p-3 text-center border-r border-b sm:border-b-0 border-[var(--line)]">
-                <p className="font-bold text-[15px] text-[var(--fg)]">5+</p>
-                <p className="font-mono text-[9px] uppercase text-[var(--soft)] mt-0.5 tracking-wider">Projects Shipped</p>
+              <div className="flex-1 min-w-0">
+                <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                  <h3 className="text-[15.5px] font-semibold text-[var(--fg)] flex items-center gap-2">
+                    {job.role} <span className="text-[var(--soft)]">·</span>{" "}
+                    <span className="text-[var(--muted)]">{job.company}</span>
+                    {job.url && <ExternalLink size={14} className="text-[var(--soft)]" />}
+                  </h3>
+                  <span className="font-mono text-[11px] text-[var(--soft)]">{job.period}</span>
+                </div>
+                <p className="mt-2 text-[13.5px] leading-relaxed text-[var(--muted)] max-w-2xl">{job.blurb}</p>
+
+                {job.highlights && job.highlights.length > 0 && (
+                  <ul className="mt-3.5 space-y-2 max-w-2xl">
+                    {job.highlights.map((point, j) => (
+                      <li
+                        key={j}
+                        className="flex gap-2.5 text-[13.5px] leading-relaxed text-[var(--muted)]"
+                      >
+                        <span className="font-mono text-[var(--soft)] flex-none">–</span>
+                        <span><BoldMetrics text={point} /></span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
-              <div className="p-3 text-center border-b sm:border-b-0 sm:border-r border-[var(--line)]">
-                <p className="font-bold text-[15px] text-[var(--fg)]">10+</p>
-                <p className="font-mono text-[9px] uppercase text-[var(--soft)] mt-0.5 tracking-wider">APIs Built</p>
-              </div>
-              <a
-                href="#opensource"
-                className="p-3 text-center border-r sm:border-r border-[var(--line)] flex flex-col justify-center transition-colors hover:bg-[var(--hover)] group/oss cursor-pointer"
-              >
-                <p className="font-bold text-[15px] text-[var(--fg)] group-hover/oss:text-[var(--soft)]">5+</p>
-                <p className="font-mono text-[9px] uppercase text-[var(--soft)] mt-0.5 tracking-wider leading-tight group-hover/oss:text-[var(--fg)]">
-                  Open Source Contributions
-                </p>
-              </a>
-              <a
-                href="#freelance"
-                className="p-3 text-center flex flex-col justify-center transition-colors hover:bg-[var(--hover)] group/freelance cursor-pointer"
-              >
-                <p className="font-bold text-[15px] text-[var(--fg)] group-hover/freelance:text-[var(--soft)]">3+</p>
-                <p className="font-mono text-[9px] uppercase text-[var(--soft)] mt-0.5 tracking-wider leading-tight group-hover/freelance:text-[var(--fg)]">
-                  Client / Freelance Projects
-                </p>
-              </a>
             </div>
+
           </motion.div>
         ))}
 

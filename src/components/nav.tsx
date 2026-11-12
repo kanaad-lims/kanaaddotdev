@@ -16,6 +16,9 @@ export function Nav({ onOpenPalette }: { onOpenPalette?: () => void }) {
     { label: "Home", path: "/" },
     { label: "Projects", path: "/projects" },
     { label: "Experience", path: "/experience" },
+    { label: "Research", path: "/#research" },
+    { label: "Achievements", path: "/#achievements" },
+    { label: "Leadership", path: "/#leadership" },
     { label: "Contact", path: "/contact" },
   ];
 
@@ -33,7 +36,7 @@ export function Nav({ onOpenPalette }: { onOpenPalette?: () => void }) {
         {/* Desktop Navigation */}
         <nav className="hidden sm:flex items-center gap-5 text-[13px] text-[var(--muted)]">
           {navLinks.map(({ label, path }) => {
-            const isActive = location.pathname === path;
+            const isActive = (location.pathname + location.hash) === path;
             return (
               <Link
                 key={path}
@@ -118,7 +121,7 @@ export function Nav({ onOpenPalette }: { onOpenPalette?: () => void }) {
           >
             <div className="px-6 py-6 space-y-4 flex flex-col font-serif text-lg bg-[var(--bg)]">
               {navLinks.map(({ label, path }) => {
-                const isActive = location.pathname === path;
+                const isActive = (location.pathname + location.hash) === path;
                 return (
                   <Link
                     key={path}
