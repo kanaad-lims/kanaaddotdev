@@ -199,7 +199,7 @@ export const site = {
       },
       featured: true,
       image: "/project-images/paperlens.png",
-      categories: ["AI/ML"],
+      categories: ["AI/ML", "Backend"],
     },
     {
       title: "MeDetect AI",
@@ -214,7 +214,7 @@ export const site = {
       },
       featured: false,
       image: "/project-images/medetect.jpeg",
-      categories: ["AI/ML"],
+      categories: ["AI/ML", "Backend"],
     },
     {
       title: "MIRAGE",
