@@ -1,8 +1,40 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { type Project } from "@/config/site";
 import { Globe, ChevronDown, ChevronUp } from "lucide-react";
 import { GitHubIcon } from "@/components/icons";
+import { BulletLines } from "@/components/bold-metrics";
+
+/** Animated counter that counts up when scrolled into view. */
+function CountUp({ from, to, duration = 2000 }: { from: number; to: number; duration?: number }) {
+  const [value, setValue] = useState(from);
+  const ref = useRef<HTMLSpanElement>(null);
+  const started = useRef(false);
+
+  useEffect(() => {
+    if (!ref.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting || started.current) return;
+        started.current = true;
+        observer.disconnect();
+        const start = performance.now();
+        const tick = (now: number) => {
+          const progress = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+          setValue(Math.round(from + (to - from) * eased));
+          if (progress < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [from, to, duration]);
+
+  return <span ref={ref}>{value.toLocaleString()}</span>;
+}
 
 const getProjectGradient = (index: number) => {
   return "from-[var(--chip)] via-[var(--card)] to-[var(--bg)]/40";
@@ -58,18 +90,21 @@ export function ProjectCard({ project: p, index = 0 }: { project: Project; index
             )}
           </div>
 
-          {/* Angled Screenshot Image */}
+          {/* Screenshot Image (contained) */}
           {p.image && !imgError ? (
-            <div className="absolute -right-6 -bottom-3 w-56 h-32 sm:-right-12 sm:-bottom-5 sm:w-72 sm:h-40 rounded-lg border-4 border-[var(--bg)]/40 shadow-xl overflow-hidden group-hover:-right-4 group-hover:-bottom-1 sm:group-hover:-right-9 sm:group-hover:-bottom-2 transition-all duration-300 pointer-events-none">
+            <div className="absolute inset-x-3 bottom-3 top-12 overflow-hidden rounded-md border border-[var(--line)]/50 bg-[var(--bg)] shadow-lg">
               <img
                 src={p.image}
                 alt={`${p.title} preview`}
-                className="w-full h-full object-cover object-top"
+                className="h-full w-full object-cover object-top"
                 onError={() => setImgError(true)}
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
             </div>
           ) : (
-            <div className="font-serif text-2xl text-[var(--fg)] self-end opacity-90">{p.title}</div>
+            <div className="absolute inset-x-3 bottom-3 top-12 grid place-items-center">
+              <div className="font-serif text-2xl text-[var(--fg)] opacity-90">{p.title}</div>
+            </div>
           )}
         </div>
 
@@ -84,6 +119,18 @@ export function ProjectCard({ project: p, index = 0 }: { project: Project; index
         <p className="mt-2 text-[13px] leading-relaxed text-[var(--muted)] line-clamp-4">
           {p.blurb}
         </p>
+
+        {/* PyPI Downloads Counter */}
+        {p.downloads && (
+          <div className="mt-3 flex items-center gap-2 rounded-lg border border-[var(--line)] bg-[var(--chip)]/60 px-3 py-2 w-fit">
+            <span className="font-mono text-[15px] font-bold text-[var(--fg)] tabular-nums">
+              <CountUp from={p.downloads.from} to={p.downloads.to} />
+            </span>
+            <span className="font-mono text-[10px] uppercase tracking-wider text-[var(--soft)]">
+              + {p.downloads.label ?? "PyPI Downloads"}
+            </span>
+          </div>
+        )}
 
         {/* Collapsible Details Drawer */}
         {p.story && (
@@ -105,10 +152,8 @@ export function ProjectCard({ project: p, index = 0 }: { project: Project; index
                   transition={{ duration: 0.2, ease: "easeInOut" }}
                   className="overflow-hidden"
                 >
-                  <div className="mt-2.5 rounded-lg border border-[var(--line)]/50 bg-[var(--chip)]/60 p-3 font-sans text-[12px] leading-relaxed text-[var(--muted)] border-l-2 border-l-[var(--soft)] space-y-1.5">
-                    {p.story.split("\n\n").map((para, idx) => (
-                      <p key={idx}>{para}</p>
-                    ))}
+                  <div className="mt-2.5 rounded-lg border border-[var(--line)]/50 bg-[var(--chip)]/60 p-3 font-sans text-[12px] leading-relaxed text-[var(--muted)] border-l-2 border-l-[var(--soft)]">
+                    <BulletLines text={p.story} />
                   </div>
                 </motion.div>
               )}

@@ -158,7 +158,7 @@ export const site = {
       blurb:
         "A lightweight utility for visually inspecting and debugging torchvision image transformation pipelines using PyTorch and matplotlib.",
       story:
-        "Uses native torchvision.transforms and visualizes intermediate steps without ever modifying your pipeline. Works in stand-alone Python files and Jupyter Notebooks, including Google Colab.",
+        "Uses native torchvision.transforms and visualizes intermediate steps without ever modifying your pipeline.\nWorks in stand-alone Python files and Jupyter Notebooks, including Google Colab.",
       stack: ["PyTorch", "Python", "Matplotlib"],
       year: "2025",
       links: {
@@ -167,14 +167,14 @@ export const site = {
       featured: true,
       image: "/project-images/torch_transform.png",
       categories: ["Tooling"],
-      downloads: { from: 200, to: 1100, label: "PyPI Downloads" },
+      downloads: { from: 200, to: 1400, label: "PyPI Downloads" },
     },
     {
       title: "PaperLens",
       blurb:
         "AI-powered research paper analysis and Q&A engine with structured extraction and RAG-based question answering.",
       story:
-        "Structured extraction covers title, authors, abstract, problem statement, methods, math formulas (LaTeX), datasets, results, limitations, future work and keywords. The RAG Q&A engine supports parallel processing and uses hybrid search (BM25 + semantic search), achieving RAGAS scores of 0.91, 0.88, 0.87 and 0.90 for Faithfulness, Answer Relevancy, Context Precision and Context Recall.",
+        "Structured extraction covers title, authors, abstract, problem statement, methods, math formulas (LaTeX), datasets, results, limitations, future work and keywords.\nRAG Q&A engine supports parallel processing and uses hybrid search (BM25 + semantic search).\nAchieved RAGAS scores of 0.91 (Faithfulness), 0.88 (Answer Relevancy), 0.87 (Context Precision) and 0.90 (Context Recall).",
       stack: ["Python", "LangGraph", "FastAPI"],
       year: "2026",
       links: {
@@ -189,7 +189,7 @@ export const site = {
       blurb:
         "AI-powered diagnostic system with accurate detection of multiple diseases.",
       story:
-        "Trained models on T4x2 GPUs using TensorFlow and Keras with Roboflow for data augmentation, achieving 90.8% (Skin Disease) and 95.34% (Alzheimer's) accuracies across test datasets. Built a custom offline mode functionality using 3 LLMs through an inverted triangle model.",
+        "Trained models on T4x2 GPUs using TensorFlow and Keras with Roboflow for data augmentation.\nAchieved 90.8% (Skin Disease) and 95.34% (Alzheimer's) accuracies across test datasets.\nBuilt a custom offline mode functionality using 3 LLMs through an inverted triangle model.",
       stack: ["Next.js", "TensorFlow", "Python"],
       year: "2025",
       links: {
@@ -204,7 +204,7 @@ export const site = {
       blurb:
         "Multimodal Image Retrieval & Attribute-Grounded Engine — an open-vocabulary, context-aware image search engine.",
       story:
-        "Utilizes VLM dense captioning (Moondream) and CLIP visual reranking for zero-shot image retrieval using natural language. Features compositional attribute binding, context & location awareness, vibe & style inference, and dual-stage retrieval.",
+        "Utilizes VLM dense captioning (Moondream) and CLIP visual reranking for zero-shot image retrieval using natural language.\nFeatures compositional attribute binding, context & location awareness, vibe & style inference, and dual-stage retrieval.",
       stack: ["OpenAI CLIP", "MoonDream 2 VLM", "ChromaDB"],
       year: "2025",
       links: {

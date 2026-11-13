@@ -4,8 +4,8 @@ import { useLocation } from "react-router-dom";
 const INDEX_ITEMS = [
   { id: "about", label: "About" },
   { id: "contact", label: "Contact" },
-  { id: "projects", label: "Projects" },
   { id: "experience", label: "Experience" },
+  { id: "projects", label: "Projects" },
   { id: "research", label: "Research" },
   { id: "skills", label: "Skills" },
   { id: "achievements", label: "Achievements" },

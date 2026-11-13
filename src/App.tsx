@@ -46,8 +46,8 @@ function MainLayout({ onOpenPalette }: { onOpenPalette: () => void }) {
       <Hero onOpenPalette={onOpenPalette} />
       <About />
       <Contact />
-      <Projects isSearchable={false} />
       <Experience isDetailed={false} />
+      <Projects isSearchable={false} />
       <Research />
       <TechStack />
       <Achievements />

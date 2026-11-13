@@ -3,26 +3,8 @@ import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Shell, SectionHeader } from "@/components/Layout";
 import { site, type FreelanceProject } from "@/config/site";
+import { BoldMetrics } from "@/components/bold-metrics";
 import { ExternalLink, Lock, ChevronDown, ChevronUp, ArrowUpRight } from "lucide-react";
-
-/** Splits text and wraps numeric metrics (90%, 2,000+, 6.12×, 54.6ms, 500+) in bold. */
-function BoldMetrics({ text }: { text: string }) {
-  const re = /(?<![A-Za-z0-9])\d[\d.,]*(?:%|×|ms|s)?\+?/g;
-  const parts = text.split(re);
-  const matches = text.match(re) ?? [];
-  return (
-    <>
-      {parts.map((part, i) => (
-        <span key={i}>
-          {part}
-          {matches[i] && (
-            <strong className="font-semibold text-[var(--fg)]">{matches[i]}</strong>
-          )}
-        </span>
-      ))}
-    </>
-  );
-}
 
 function FreelanceCard({
   project,
