@@ -85,8 +85,8 @@ export const site = {
     author: "",
   },
   profileImages: [
-    "/profile.jpg",
-    "/profile2.png",
+    "/profile2.jpg",
+    "/favicon.png"
   ],
   bannerImage: "/images/cover.jpg",
   socialBannerImage: "/social-banner.png",
@@ -120,7 +120,7 @@ export const site = {
     twitter: "https://x.com/kanaad_limaye",
     linkedin: "https://linkedin.com/in/kanaad-limaye",
     email: "mailto:kanaad.limaye@gmail.com",
-    resume: "https://drive.google.com/file/d/1OqlQWzckAdK4XZpJ0M2Ied85ll6ET6sJ/view?usp=sharing",
+    resume: "https://drive.google.com/file/d/1eS3qhNMNYjhStEp56_Z86_mwWWIZIDFL/view?usp=sharing",
     discord: "",
     medium: "https://medium.com/@kanaad.limaye",
   },
@@ -154,13 +154,30 @@ export const site = {
   freelanceProjects: [] as FreelanceProject[],
   projects: [
     {
+      title: "Boreas Agent",
+      blurb:
+        "A modular, from-scratch coding-agent harness built with LangGraph and Python. Designed for tool-use loops, enforced policies, compact formatting, and a clean terminal experience.",
+      story:
+        "Built a modular AI agent harness with LangGraph and Groq, orchestrating multi-step tool use with approval-aware execution, context compression and guardrails.\nImplemented LangSmith tracing and JSONL telemetry to capture model calls, tool executions, outcomes, and errors across agent turns.\nEvaluated 100+ recorded sessions (20+ turns each) achieving 100% on budget compliance, tool validity, and recovery, and 92.9% citation coverage; tracked model latency at p50: 1.81s and p99: 6.52s.",
+      stack: ["LangGraph", "Groq", "Python", "SQLite3", "LangSmith"],
+      year: "2026",
+      links: {
+        live: "https://boreas-landing.vercel.app/",
+        source: "https://github.com/kanaad-lims/AgentHarness",
+      },
+      featured: true,
+      status: "In Progress",
+      image: "/project-images/boreas.png",
+      categories: ["AI/ML"],
+    },
+    {
       title: "Torch Transforms Inspect",
       blurb:
         "A lightweight utility for visually inspecting and debugging torchvision image transformation pipelines using PyTorch and matplotlib.",
       story:
         "Uses native torchvision.transforms and visualizes intermediate steps without ever modifying your pipeline.\nWorks in stand-alone Python files and Jupyter Notebooks, including Google Colab.",
       stack: ["PyTorch", "Python", "Matplotlib"],
-      year: "2025",
+      year: "2026",
       links: {
         source: "https://github.com/kanaad-lims/Torch-Transform-Inspector",
       },
@@ -175,7 +192,7 @@ export const site = {
         "AI-powered research paper analysis and Q&A engine with structured extraction and RAG-based question answering.",
       story:
         "Structured extraction covers title, authors, abstract, problem statement, methods, math formulas (LaTeX), datasets, results, limitations, future work and keywords.\nRAG Q&A engine supports parallel processing and uses hybrid search (BM25 + semantic search).\nAchieved RAGAS scores of 0.91 (Faithfulness), 0.88 (Answer Relevancy), 0.87 (Context Precision) and 0.90 (Context Recall).",
-      stack: ["Python", "LangGraph", "FastAPI"],
+      stack: ["Python", "FastAPI", "ChromaDB", "Docling"],
       year: "2026",
       links: {
         source: "https://github.com/kanaad-lims/PaperLens",
@@ -208,6 +225,7 @@ export const site = {
       stack: ["OpenAI CLIP", "MoonDream 2 VLM", "ChromaDB"],
       year: "2025",
       links: {
+        live: "https://kanaad-lims.github.io/MIRAGE/",
         source: "https://github.com/kanaad-lims/mirage",
       },
       featured: false,

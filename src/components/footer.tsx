@@ -3,6 +3,7 @@ import { Shell, GapBand, SectionHeader } from "@/components/Layout";
 import { site } from "@/config/site";
 import { ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { text } from "framer-motion/client";
 
 const QUOTES = [
   {
@@ -18,13 +19,21 @@ const QUOTES = [
     author: "Steve Jobs",
   },
   {
-    text: "I’ve decided to become the Pirate King. If I die trying, then at least I die fighting for my dream.",
-    author: "Monkey D. Luffy",
+    text: "Keep pushing the limits!",
+    author: "Max Verstappen",
   },
   {
-    text: "If you don't like your destiny, don't accept it.",
-    author: "Naruto Uzumaki",
+    text: "It's not a question of IF, but a question of WHEN.",
+    author: "Personal",
   },
+  {
+    text: "To fulfill your destiny, you must let go the illusion of control.",
+    author: "Master Oogaway"
+  },
+  {
+    text: "Outside the will of God, there is nothing I want. Inside the will of God, there is nothing I fear",
+    author: "A. W. Tozer"
+  }
 ];
 
 export function Footer() {
