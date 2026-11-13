@@ -17,7 +17,6 @@ export function Nav({ onOpenPalette }: { onOpenPalette?: () => void }) {
     { label: "Projects", path: "/projects" },
     { label: "Experience", path: "/experience" },
     { label: "Research", path: "/#research" },
-    { label: "Achievements", path: "/#achievements" },
     { label: "Leadership", path: "/#leadership" },
     { label: "Contact", path: "/contact" },
   ];

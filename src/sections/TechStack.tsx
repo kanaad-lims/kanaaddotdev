@@ -44,6 +44,10 @@ const SKILL_ICONS: Record<string, string> = {
   gRPC: "logos:grpc",
   NATS: "logos:nats",
   SQLite3: "logos:sqlite",
+  Postman: "logos:postman-icon",
+  MongoDB: "logos:mongodb-icon",
+  GitHub: "logos:github-icon",
+  Vercel: "logos:vercel-icon",
   Docker: "logos:docker-icon",
   AWS: "logos:aws",
   "GitHub Actions": "logos:github-actions",
@@ -96,8 +100,8 @@ const skillCategories: Record<string, string[]> = {
     "YOLOv11",
     "Detectron2",
   ],
-  "Backend & APIs": ["FastAPI", "Flask", "REST APIs", "gRPC", "NATS", "SQLite3"],
-  "Cloud & MLOps": ["Docker", "AWS", "GitHub Actions", "Git"],
+  "Backend & APIs": ["FastAPI", "Flask", "REST APIs", "gRPC", "NATS", "SQLite3", "Postman", "MongoDB"],
+  "Cloud & MLOps": ["Docker", "AWS", "GitHub Actions", "Git", "GitHub", "Vercel"],
 };
 
 export function TechStack() {

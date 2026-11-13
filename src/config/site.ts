@@ -98,9 +98,9 @@ export const site = {
   greeting: "Hi, I'm Kanaad",
   tagline: "Building AI-powered applications, RAG systems, backend services and machine learning solutions. Passionate about transforming AI models into real-world products.",
   about: [
-    "I am currently working as an ML Intern at PictelAI, where I help build computer vision and image processing pipelines that are later integrated into advanced microscopes and stand-alone systems.",
-    "My work is focused on bridging the gap between AI/ML research and practical applications. Currently working in the Agentic AI space, where I plan to design and build production-level systems that scale.",
-    "When I am AFK, you'll probably find me watching football, going on a trek or relaxing with a good piece of fiction.",
+    "Hey, I'm Kanaad Limaye, a Computer Science undergrad working at the intersection of ML Research, Agents, Computer Vision and System Design. I aspire to bridge foundational research and build scalable applications on top of it.",
+    "I strongly believe in 'Systems beyond Models' and so my work currently lies in Harness Engineering and self-improving Agentic systems. I equally enjoy LLM theory and you will frequently find me reading research papers on related topics. I also possess strong backend fundamentals, with majority of my projects developed using FastAPI.",
+    "When I am AFK, you'll probably find me watching football, going on a trek or playing World of Warships.",
   ],
   tldr: [
     "ML Intern @ PictelAI.",
@@ -293,55 +293,28 @@ export const site = {
       pdfUrl: "https://drive.google.com/file/d/18XplHXaMd-fb1HC9Ey-CYR6u8nc6FdUa/view?usp=sharing",
     },
   ] as Paper[],
-  achievements: [
-    {
-      title: "ABU Robocon AIR 5",
-      category: "Competition",
-      points: [
-        "Secured AIR 5 nationally at ABU Robocon.",
-        "Represented Team Rudra in autonomous robotics.",
-      ],
-      year: "2024",
-    },
-    {
-      title: "IEEE Publication",
-      category: "Research",
-      points: [
-        "Research paper accepted at an international conference.",
-        "Published in IEEE Xplore proceedings.",
-      ],
-      year: "2026",
-    },
-    {
-      title: "SISTER AI/ML Program",
-      category: "Fellowship",
-      points: [
-        "Selected for the AI/ML research track.",
-        "Mentorship under Delta Rising Foundation.",
-      ],
-      year: "2026",
-    },
-  ] as Achievement[],
+  achievements: [] as Achievement[],
   leadership: [
     {
       org: "IEEE MMCOE Student Branch",
       role: "Chairperson",
       points: [
-        "Led the IEEE Student Branch and coordinated technical initiatives.",
-        "Organized workshops, events and community activities.",
-        "Best Student Branch of the Year 2025 – IEEE Pune Section.",
+        "Led branch to win Best Student Branch of the Year 2025 by IEEE Pune Section",
+        "Served as an ambassador for IEEE Region-10 ACEI committee promoting student entrepreneurship.",
+        "Managed multiple National events with more than 500+ participants."
       ],
       period: "Jan 2025 – Jan 2026",
       logo: "/images/leadership/ieeeLogo.png",
     },
     {
-      org: "HPAIR",
+      org: "Harvard Project for Asian and International Relations",
       role: "International Student Delegate",
       points: [
-        "Represented MMCOE at the Harvard Project for Asian and International Relations.",
+        "Selected amongst 50,000+ applicants, with an acceptance rate of <10%.",
+        "Represented my college at the HPAIR, held at University of Tokyo, Japan.",
         "Participated in discussions on leadership, innovation and global collaboration.",
       ],
-      period: "Aug 2025 – Present",
+      period: "Aug 2025 – Aug 2026",
       logo: "/images/leadership/harvardLogo.png",
     },
     {
@@ -367,9 +340,11 @@ export const site = {
       org: "Kumudini Charitable Trust",
       role: "Volunteer",
       points: [
-        "Ongoing volunteering with Kumudini Charitable Trust.",
+        "Currently working as a volunteer to spread awareness for fire related hazards and precaution against fire accidents.",
+        "Surveyed and reached out to around 10+ schools, interacting with 250+ students from grades 5th to 10th.",
+        "Spread awareness in door-to-door campaign, covering 50+ homes, having interacted with 150+ people, mostly senior citizens."
       ],
-      period: "2023 – Present",
+      period: "Aug 2023 – Present",
       logo: "/images/leadership/kumudiniLogo.png",
     },
   ] as LeadershipRole[],
@@ -403,10 +378,14 @@ export const site = {
     "gRPC",
     "NATS",
     "SQLite3",
+    "Postman",
+    "MongoDB",
     "Docker",
     "AWS",
     "GitHub Actions",
     "Git",
+    "GitHub",
+    "Vercel",
   ],
   writing: [] as Post[],
   openSourceContributions: [] as OpenSourceContribution[],

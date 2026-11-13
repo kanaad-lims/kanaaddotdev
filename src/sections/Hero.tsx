@@ -37,7 +37,7 @@ export function Hero({ onOpenPalette }: { onOpenPalette?: () => void }) {
         <div className="relative h-36 overflow-hidden rounded-xl bg-neutral-950 sm:h-44 border border-[var(--line)]">
           <img
             src={site.bannerImage}
-            alt="Starry Night banner"
+            alt="Banner Image"
             loading="eager"
             decoding="async"
             className="w-full h-full object-cover object-center opacity-90 transition-opacity duration-300 hover:opacity-100"
