@@ -20,27 +20,6 @@ export function About() {
             <p>{para}</p>
           </motion.div>
         ))}
-
-        {/* Developer Snapshot Cards */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4, delay: 0.3 }}
-          className="mt-6 rounded-xl border border-[var(--line)] bg-[var(--card)] p-5"
-        >
-          <p className="font-mono text-[11px] uppercase tracking-widest text-[var(--fg)] font-semibold mb-3">
-            Developer Snapshot
-          </p>
-          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[13px] font-mono text-[var(--muted)]">
-            {site.tldr.map((item) => (
-              <li key={item} className="flex items-center gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 flex-none" />
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        </motion.div>
       </Shell>
     </div>
   );

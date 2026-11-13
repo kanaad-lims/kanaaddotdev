@@ -17,6 +17,7 @@ import { GithubActivity } from "@/sections/GithubActivity";
 import { Research } from "@/sections/Research";
 import { Achievements } from "@/sections/Achievements";
 import { Leadership } from "@/sections/Leadership";
+import { Gallery } from "@/sections/Gallery";
 import { CommandPalette } from "@/components/command-palette";
 import { WritingPage } from "@/pages/WritingPage";
 import { Konami } from "@/components/konami";
@@ -54,6 +55,7 @@ function MainLayout({ onOpenPalette }: { onOpenPalette: () => void }) {
       <Leadership />
       <Writing limit={4} />
       <GithubActivity />
+      <Gallery />
     </>
   );
 }

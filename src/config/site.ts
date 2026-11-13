@@ -126,7 +126,7 @@ export const site = {
   },
   experience: [
     {
-      company: "IISER Pune",
+      company: "Indian Institutes of Science Education and Research (IISER), Pune",
       role: "Project Intern",
       period: "",
       blurb: "",
@@ -179,12 +179,29 @@ export const site = {
       stack: ["PyTorch", "Python", "Matplotlib"],
       year: "2026",
       links: {
+        live: "https://pepy.tech/projects/torch-transform-inspect?timeRange=threeMonths&category=version&includeCIDownloads=true&granularity=daily&viewType=line&versions=Total%2C0.*",
         source: "https://github.com/kanaad-lims/Torch-Transform-Inspector",
       },
       featured: true,
       image: "/project-images/torch_transform.png",
       categories: ["Tooling"],
       downloads: { from: 200, to: 1400, label: "PyPI Downloads" },
+    },
+    {
+      title: "Jev Games",
+      blurb:
+        "A collection of games tested using jev model from typesafe AI. Consists of 7 deterministic and non-deterministic games for testing what Jev is good at instead of relying on standard benchmarks.",
+      story:
+        "Includes Wordle, Maze, Akinator, Sokoban, FactChecker, Passage Comprehension and Sequence Logic games, each with step-by-step decoding capabalities.\n Jev is strong at single-shot, evidence-grounded judgement, but it is weak at multi-turn planning tasks without being coupled with a persistent memory. \n Site is live! BYOK (TypeSafe API Key), plug in and start playing. No log-in, No sign-ups, everything runs in your browser.",
+      stack: ["Python", "TypeSafe API", "HTML", "CSS"],
+      year: "2026",
+      links: {
+        live: "https://jev-games.onrender.com/",
+        source: "https://github.com/kanaad-lims/PaperLens",
+      },
+      featured: true,
+      image: "/project-images/jevgames.png",
+      categories: ["AI/ML", "Backend"],
     },
     {
       title: "PaperLens",
@@ -219,7 +236,7 @@ export const site = {
     {
       title: "MIRAGE",
       blurb:
-        "Multimodal Image Retrieval & Attribute-Grounded Engine — an open-vocabulary, context-aware image search engine.",
+        "Multimodal Image Retrieval & Attribute-Grounded Engine: An open-vocabulary, context-aware image search engine.",
       story:
         "Utilizes VLM dense captioning (Moondream) and CLIP visual reranking for zero-shot image retrieval using natural language.\nFeatures compositional attribute binding, context & location awareness, vibe & style inference, and dual-stage retrieval.",
       stack: ["OpenAI CLIP", "MoonDream 2 VLM", "ChromaDB"],

@@ -11,6 +11,7 @@ const INDEX_ITEMS = [
   { id: "achievements", label: "Achievements" },
   { id: "leadership", label: "Leadership" },
   { id: "github", label: "GitHub" },
+  { id: "gallery", label: "Gallery" },
 ];
 
 export function SideIndex() {
