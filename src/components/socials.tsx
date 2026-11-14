@@ -31,7 +31,7 @@ const hoverCardsData: Record<string, {
   github: {
     handle: "@kanaad-lims",
     bio: "AI Engineer & CS Student. Building AI-powered applications, RAG systems and machine learning solutions.",
-    stats: ["4+ Projects", "1,100+ PyPI Downloads"],
+    stats: ["4+ Projects", "1,400+ PyPI Downloads"],
     bannerText: "learn • build • ship",
   },
   twitter: {
