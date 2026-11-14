@@ -16,13 +16,15 @@ import {
   BookOpen,
   Mail,
   Briefcase,
-  GitMerge
+  FileText,
+  Users,
+  Images
 } from "lucide-react";
 import { GitHubIcon } from "./icons";
 
 interface PaletteItem {
   id: string;
-  category: "navigation" | "projects" | "actions";
+  category: "navigation" | "projects" | "actions" | "articles";
   title: string;
   subtitle?: string;
   icon: React.ReactNode;
@@ -116,24 +118,57 @@ export function CommandPalette({
       },
     },
     {
-      id: "nav-opensource",
+      id: "nav-writing",
       category: "navigation",
-      title: "Go to Open Source",
-      subtitle: "5+ merged pull requests & contributions",
-      icon: <GitMerge size={16} />,
+      title: "Go to Writing",
+      subtitle: "Articles & research writing",
+      icon: <BookOpen size={16} />,
       action: () => {
-        navigate("/#opensource");
+        navigate("/writing");
         handleClose();
       },
     },
     {
-      id: "nav-writing",
+      id: "nav-research",
       category: "navigation",
-      title: "Go to Writing",
-      subtitle: "Technical articles & blog posts",
-      icon: <BookOpen size={16} />,
+      title: "Go to Research",
+      subtitle: "Published papers & publications",
+      icon: <FileText size={16} />,
       action: () => {
-        navigate("/writing");
+        navigate("/research");
+        handleClose();
+      },
+    },
+    {
+      id: "nav-skills",
+      category: "navigation",
+      title: "Go to Skills",
+      subtitle: "Full tech stack & tools",
+      icon: <Terminal size={16} />,
+      action: () => {
+        navigate("/skills");
+        handleClose();
+      },
+    },
+    {
+      id: "nav-leadership",
+      category: "navigation",
+      title: "Go to Leadership",
+      subtitle: "Roles, clubs & volunteering",
+      icon: <Users size={16} />,
+      action: () => {
+        navigate("/leadership");
+        handleClose();
+      },
+    },
+    {
+      id: "nav-gallery",
+      category: "navigation",
+      title: "Go to Gallery",
+      subtitle: "Photos beyond the keyboard",
+      icon: <Images size={16} />,
+      action: () => {
+        navigate("/gallery");
         handleClose();
       },
     },
@@ -159,6 +194,17 @@ export function CommandPalette({
         handleClose();
       },
     })),
+    ...site.writing.map((post) => ({
+      id: `article-${post.title.toLowerCase().slice(0, 40)}`,
+      category: "articles" as const,
+      title: `Read: ${post.title}`,
+      subtitle: post.summary,
+      icon: <BookOpen size={16} />,
+      action: () => {
+        window.open(post.url, "_blank");
+        handleClose();
+      },
+    })),
     {
       id: "action-theme",
       category: "actions",
@@ -167,17 +213,6 @@ export function CommandPalette({
       icon: theme === "dark" ? <Sun size={16} /> : <Moon size={16} />,
       action: () => {
         toggleTheme();
-        handleClose();
-      },
-    },
-    {
-      id: "action-medium",
-      category: "actions",
-      title: "Open Medium Profile",
-      subtitle: "medium.com/@kanaad.limaye",
-      icon: <BookOpen size={16} />,
-      action: () => {
-        window.open((site.socials as any).medium, "_blank");
         handleClose();
       },
     },

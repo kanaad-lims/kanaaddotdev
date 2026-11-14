@@ -102,9 +102,9 @@ export function Footer() {
           {/* <p className="text-[14.5px] text-[var(--muted)]">
             Designed &amp; Developed by <span className="font-semibold text-[var(--fg)]">{site.name}</span>
           </p> */}
-          {/* <p className="mt-1.5 font-mono text-[12px] text-[var(--soft)]">
+          <p className="mt-1.5 font-mono text-[12px] text-[var(--soft)]">
             © {new Date().getFullYear()} All rights reserved.
-          </p> */}
+          </p>
           <p className="mt-2.5 flex items-center justify-center gap-2 font-mono text-[12px] text-[var(--soft)]">
             <span className="relative flex size-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />

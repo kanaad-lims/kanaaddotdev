@@ -123,6 +123,8 @@ export const site = {
     resume: "https://drive.google.com/file/d/1eS3qhNMNYjhStEp56_Z86_mwWWIZIDFL/view?usp=sharing",
     discord: "",
     medium: "https://medium.com/@kanaad.limaye",
+    leetcode: "https://leetcode.com/u/KanaadLimz/",
+    huggingface: "https://huggingface.co/kanaadlimaye",
   },
   experience: [
     {
@@ -176,7 +178,7 @@ export const site = {
       blurb:
         "A lightweight utility for visually inspecting and debugging torchvision image transformation pipelines using PyTorch and matplotlib.",
       story:
-        "Uses native torchvision.transforms and visualizes intermediate steps without ever modifying your pipeline.\nWorks in stand-alone Python files and Jupyter Notebooks, including Google Colab.",
+        "Built a lightweight debugging utility eliminating verbose  boilerplate code.\n Users visualize entire augmentation pipelines by generating matplotlib grid preview to identify problematic transforms during preprocessing and augmentation. \n 1,400+ downloads on PyPI, supported in Google Colab as well as standalone Jupyter Notebooks and Python files.",
       stack: ["PyTorch", "Python", "Matplotlib"],
       year: "2026",
       links: {
@@ -388,7 +390,20 @@ export const site = {
     "GitHub",
     "Vercel",
   ],
-  writing: [] as Post[],
+  writing: [
+    {
+      title: "Building Modern Distributed Systems using gRPC and NATS",
+      summary: "Understanding the technology powering high performance microservices and event-driven systems.",
+      date: "Sep 20, 2026",
+      url: "https://medium.com/@kanaad.limaye/building-modern-distributed-systems-using-grpc-and-nats-ab9913fa4fab",
+    },
+    {
+      title: "Discover Thunkable: Your first step towards app development",
+      summary: "A brief introduction to no-code app development platform used by millions of developers.",
+      date: "Jun 28, 2024",
+      url: "https://medium.com/@kanaad.limaye/discover-thunkable-your-first-step-towards-app-development-af5bf3913c3f",
+    },
+  ] as Post[],
   openSourceContributions: [] as OpenSourceContribution[],
   github: {
     username: "kanaad-lims",

@@ -19,7 +19,6 @@ import { Achievements } from "@/sections/Achievements";
 import { Leadership } from "@/sections/Leadership";
 import { Gallery } from "@/sections/Gallery";
 import { CommandPalette } from "@/components/command-palette";
-import { WritingPage } from "@/pages/WritingPage";
 import { Konami } from "@/components/konami";
 import { Analytics } from "@vercel/analytics/react";
 
@@ -52,8 +51,8 @@ function MainLayout({ onOpenPalette }: { onOpenPalette: () => void }) {
       <Research />
       <TechStack />
       <GithubActivity />
-      <Leadership />
       <Writing limit={4} />
+      <Leadership />
       <Gallery />
     </>
   );
@@ -115,7 +114,11 @@ export function App() {
                   }
                 />
                 <Route path="/contact" element={<Contact />} />
-                <Route path="/writing" element={<WritingPage />} />
+                <Route path="/writing" element={<Writing />} />
+                <Route path="/research" element={<Research />} />
+                <Route path="/skills" element={<TechStack />} />
+                <Route path="/leadership" element={<Leadership />} />
+                <Route path="/gallery" element={<Gallery />} />
               </Routes>
             </main>
 
