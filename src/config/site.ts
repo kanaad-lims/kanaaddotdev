@@ -88,7 +88,7 @@ export const site = {
     "/profile2.jpg",
     "/favicon.png"
   ],
-  bannerImage: "/images/cover.jpg",
+  bannerImage: "/images/flowers.jpg",
   socialBannerImage: "/social-banner.png",
   initials: "KL",
   role: "AI Engineer | CS Student",
@@ -100,7 +100,7 @@ export const site = {
   about: [
     "Hey, I'm Kanaad Limaye, a Computer Science undergrad working at the intersection of ML Research, Agents, Computer Vision and System Design. I aspire to bridge foundational research and build scalable applications on top of it.",
     "I strongly believe in 'Systems beyond Models' and so my work currently lies in Harness Engineering and self-improving Agentic systems. I equally enjoy LLM theory and you will frequently find me reading research papers on related topics. I also possess strong backend fundamentals, with majority of my projects developed using FastAPI.",
-    "When I am AFK, you'll probably find me watching football, going on a trek or playing World of Warships.",
+    "When I am AFK, you'll find me watching/playing football (professionally for the past 14 yrs), going on a trek up in the mountains or playing World of Warships.",
   ],
   tldr: [
     "ML Intern @ PictelAI.",
@@ -132,6 +132,7 @@ export const site = {
       blurb: "",
       highlights: [
         "Working on a quantum computing website for bug fixing and feature addition.",
+        "Currently working on Quantum Computing as a Service platform, developed in house."
       ],
       logo: "/images/companies/iiserlogo.png",
     },
